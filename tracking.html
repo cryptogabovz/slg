@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Inteligente | SLGOME Logistics</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="container nav">
+            <div class="logo"><a href="index.html"><img src="src/assets/logo.png" alt="SLGOME Logo"
+                        class="logo-img"></a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="infraestructura.html">Infraestructura</a></li>
+                <li><a href="tracking.html" class="active">Tracking Inteligente</a></li>
+                <li><a href="casos.html">Casos / Galería</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacto.html" class="btn btn-secondary">Contacto</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section bg-light" style="padding-top: 150px; min-height: 80vh;">
+            <div class="container">
+                <div class="section-header">
+                    <span style="color: var(--accent-green); font-weight: 600;">VISIBILIDAD TOTAL</span>
+                    <h2>Tracking Inteligente</h2>
+                    <p>Ingresa tu número de guía para conocer el estatus actual de tu envío.</p>
+                </div>
+
+                <div
+                    style="max-width: 600px; margin: 0 auto; background: white; padding: 3rem; border-radius: 12px; box-shadow: var(--shadow-md);">
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                        <input type="text" id="tracking-input" placeholder="Ej: SLG-12345"
+                            style="flex: 1; padding: 1rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 1rem;">
+                        <button class="btn btn-primary" onclick="searchTracking()">Buscar</button>
+                    </div>
+
+                    <div id="tracking-result"
+                        style="display: none; border-top: 1px solid var(--border-color); padding-top: 2rem;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <h3 id="res-id">Guía: SLG-12345</h3>
+                            <span id="res-status"
+                                style="background: var(--accent-green); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">EN
+                                TRÁNSITO</span>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <p style="color: var(--text-light); font-size: 0.9rem;">Última actualización:</p>
+                            <p id="res-date" style="font-weight: 600;">27 de Enero, 2026 - 10:30 AM</p>
+                        </div>
+                        <div style="margin-bottom: 2rem;">
+                            <p style="color: var(--text-light); font-size: 0.9rem;">Ubicación / Observaciones:</p>
+                            <p id="res-obs" style="font-weight: 500;">Unidad en ruta hacia CEDIS Querétaro. Sin
+                                contratiempos.</p>
+                        </div>
+                        <a href="https://wa.me/524426656402" class="btn btn-secondary"
+                            style="width: 100%; gap: 0.5rem;">
+                            <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
+                        </a>
+                    </div>
+
+                    <div id="tracking-empty" style="text-align: center; color: var(--text-light); margin-top: 1rem;">
+                        <p>¿No tienes tu número de guía? <a href="contacto.html"
+                                style="color: var(--primary-blue); font-weight: 600;">Contáctanos</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function searchTracking() {
+            const input = document.getElementById('tracking-input').value;
+            const result = document.getElementById('tracking-result');
+            if (input.length > 3) {
+                document.getElementById('res-id').innerText = 'Guía: ' + input.toUpperCase();
+                result.style.display = 'block';
+            } else {
+                alert('Por favor ingresa un número de guía válido.');
+            }
+        }
+    </script>
+
+    <footer class="footer">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 SLGOME Logistics SA de CV.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
