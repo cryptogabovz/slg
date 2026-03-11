@@ -1,3 +1,4 @@
+# Multi-stage build for SLGOME website
 FROM node:20-alpine AS builder
 
 WORKDIR /app
